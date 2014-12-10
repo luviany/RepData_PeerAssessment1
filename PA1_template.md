@@ -1,10 +1,5 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-author: "The main thing that you have to remember on this journey is, just be nice to everyone and always smile."
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
+The main thing that you have to remember on this journey is, just be nice to everyone and always smile.  
 
 
 What is mean total number of steps taken per day?
