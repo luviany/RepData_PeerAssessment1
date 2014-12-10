@@ -121,13 +121,21 @@ no.na.data <- new.data[, c(1:3)]
 
 4a.Make a histogram of the total number of steps taken each day 
 
+First the histogram as it seems required, using the inputed set:
+
+```{r}
+total.steps.daily.no.na.data <- aggregate(steps ~ date, data=no.na.data, sum)
+
+hist(total.steps.daily.no.na.data$steps)
+```
+
 The following chart overlays the two sets of data in order to get a clearer idea of the impact of modifying the first data set.
 Note that some days where completely missing from the origianal set, while some others completely overlap in the two sets.
 
 Original set in colored green, new set colored red.*
 
 ```{r, fig.height=8, fig.width=9}
-total.steps.daily.no.na.data <- aggregate(steps ~ date, data=no.na.data, sum)
+
 ## overlapping the two charts
 new.barchart <- barchart(total.steps.daily.no.na.data$date ~ total.steps.daily.no.na.data$steps, 
                           main = "Total Steps each Day/ overlay of the two datasets", 

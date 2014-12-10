@@ -162,6 +162,17 @@ no.na.data <- new.data[, c(1:3)]
 
 4a.Make a histogram of the total number of steps taken each day 
 
+First the histogram as it seems required, using the inputed set:
+
+
+```r
+total.steps.daily.no.na.data <- aggregate(steps ~ date, data=no.na.data, sum)
+
+hist(total.steps.daily.no.na.data$steps)
+```
+
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+
 The following chart overlays the two sets of data in order to get a clearer idea of the impact of modifying the first data set.
 Note that some days where completely missing from the origianal set, while some others completely overlap in the two sets.
 
@@ -169,7 +180,6 @@ Original set in colored green, new set colored red.*
 
 
 ```r
-total.steps.daily.no.na.data <- aggregate(steps ~ date, data=no.na.data, sum)
 ## overlapping the two charts
 new.barchart <- barchart(total.steps.daily.no.na.data$date ~ total.steps.daily.no.na.data$steps, 
                           main = "Total Steps each Day/ overlay of the two datasets", 
@@ -182,7 +192,7 @@ original.barchart <- barchart(total.steps.daily$date ~ total.steps.daily$steps,
 doubleYScale(new.barchart, original.barchart)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-14-1.png) 
 
 4b Calculate and report the mean and median total number of steps taken per day.
 
@@ -243,4 +253,4 @@ xyplot(data=no.na.data.day.type, steps ~ interval | weekend.var, type="l",
 )
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-17-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-18-1.png) 
